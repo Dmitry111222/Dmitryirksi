@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<!-- Первое задание - Вывод слова -->
+<div id="app">
+  <p>{{ message }}</p>
+</div>
+<!-- Второе задание - При навидении на предложение выводит дату -->
+<div id="app-2">
+  <span v-bind:title="message">
+    Hover your mouse over me for a few seconds
+    to see my dynamically bound title!
+  </span>
+</div>
+<script>
+//Скрипт к первому заданию
+ var app = new Vue({
+  el: '#app',
+  data: {
+  message: 'Hello Vue!'
+  }
+})
+ //Скрипт ко второму заданию
+  var app2 = new Vue({
+  el: '#app-2',
+  data: {
+  message: 'You loaded this page on ' + new Date().toLocaleString()
+  }
+})
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<!-- Седьмое задания - Разбиение приложения на компоненты -->
+<ul>
+  <!-- Создаём экземпляр компонента todo-item -->
+  <todo-item></todo-item>
+</ul>
+<div id="app-7">
+  <ol>
+    <!--
+      Теперь мы можем передать каждому компоненту todo объект
+      с информацией о задаче, который будет динамически меняться.
+      Мы также определяем для каждого компонента "key",
+      значение которого будет объяснено далее в руководстве.
+    -->
+    <todo-item
+      v-for="item in groceryList"
+      v-bind:todo="item"
+      v-bind:key="item.id">
+    </todo-item>
+  </ol>
+</div>
+
+<script>
+// Определяем новый компонент под названием todo-item
+Vue.component('todo-item', {
+  template: '<li>Это todo</li>'
+})
+Vue.component('todo-item', {
+  // Компонент todo-item теперь принимает
+  // "prop", то есть пользовательский параметр.
+  // Этот параметр называется todo.
+  props: ['todo'],
+  template: '<li>{{ todo.text }}</li>'
+})
+Vue.component('todo-item', {
+  props: ['todo'],
+  template: '<li>{{ todo.text }}</li>'
+})
+
+var app7 = new Vue({
+  el: '#app-7',
+  data: {
+    groceryList: [
+      { id: 0, text: 'Овощи' },
+      { id: 1, text: 'Сыр' },
+      { id: 2, text: 'Что там ещё люди едят?' }
+    ]
+  }
+})
+</script>
+</body>
+</html>

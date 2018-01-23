@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+ <!-- Третье задание - Управление присутствием элемента через консоль -->
+<div id="app-3">
+  <span v-if="seen">Now you see me</span>
+</div>
+<!-- Четвертое задание - Отображение списка -->
+<div id="app-4">
+  <ol>
+    <li v-for="todo in todos">
+      {{ todo.text }}
+    </li>
+  </ol>
+</div>
+<!-- Пятое задание - При нажатии на кнопку меняется порядок текста -->
+<div id="app-5">
+  <p>{{ message }}</p>
+  <button v-on:click="reverseMessage">Обратить порядок букв в сообщении</button>
+</div>
+<!-- Шестое задание - Связывает элементы форм и состояние приложение
+При изменинии текста в форме, выводит его -->
+<div id="app-6">
+  <p>{{ message }}</p>
+  <input v-model="message">
+</div>
+<script>
+//Скрипт для третьего задания
+var app3 = new Vue({
+  el: '#app-3',
+  data: {
+    seen: true
+  }
+})
+//Скрипт для четвертого задания
+var app4 = new Vue({
+  el: '#app-4',
+  data: {
+    todos: [
+      { text: 'Посадить дерево' },
+      { text: 'Построить дом' },
+      { text: 'Вырастить сына' }
+    ]
+  }
+})
+//Скрипт для пятого задания
+var app5 = new Vue({
+  el: '#app-5',
+  data: {
+    message: 'Hello Vue.js!'
+  },
+  methods: {
+    reverseMessage: function () {
+      this.message = this.message.split('').reverse().join('')
+    }
+  }
+})
+//Скрипт для шестого задания
+var app6 = new Vue({
+  el: '#app-6',
+  data: {
+    message: 'Hello Vue.JS!'
+  }
+})
+</script>
+</body>
+</html>
